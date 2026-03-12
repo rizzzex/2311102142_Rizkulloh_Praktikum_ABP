@@ -132,12 +132,12 @@ Modal akan muncul ketika tombol ditekan dan menampilkan pesan ucapan selamat.
 
 ---
 
-# 🖥 Tampilan Website
+# Tampilan Website
 
 ## Halaman Utama
 
 ```
-![Halaman Utama](images/homepage.png)
+![Halaman Awal](images/HalamanAwal.png)
 ```
 
 ---
@@ -145,7 +145,7 @@ Modal akan muncul ketika tombol ditekan dan menampilkan pesan ucapan selamat.
 ## Modal THR
 
 ```
-![Modal THR](images/modal-thr.png)
+![Popup THR](images/Popup.png)
 ```
 
 ---
