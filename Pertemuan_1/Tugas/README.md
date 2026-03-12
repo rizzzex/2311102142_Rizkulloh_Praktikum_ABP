@@ -136,17 +136,9 @@ Modal akan muncul ketika tombol ditekan dan menampilkan pesan ucapan selamat.
 
 ## Halaman Utama
 
-```
 ![Halaman Awal](images/HalamanAwal.png)
-```
 
----
-
-## Modal THR
-
-```
 ![Popup THR](images/Popup.png)
-```
 
 ---
 
