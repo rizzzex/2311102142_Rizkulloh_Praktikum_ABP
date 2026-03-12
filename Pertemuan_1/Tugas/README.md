@@ -46,15 +46,6 @@ Bootstrap digunakan melalui **CDN**, sehingga tidak perlu instalasi tambahan.
 
 ---
 
-# 📂 Struktur Project
-
-```
-ramadan-vibes/
-│
-├── index.html
-└── README.md
-```
-
 # Penjelasan Kode
 
 ## 1. Bootstrap CDN
