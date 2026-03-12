@@ -1,3 +1,6 @@
+2311102142_Rizkulloh Alpriyansah
+
+
 # 🌙 Ramadan Vibes Website
 
 ## Deskripsi Project
@@ -138,6 +141,7 @@ Modal akan muncul ketika tombol ditekan dan menampilkan pesan ucapan selamat.
 
 ![Halaman Awal](images/HalamanAwal.png)
 
+##Popup THR
 ![Popup THR](images/Popup.png)
 
 ---
