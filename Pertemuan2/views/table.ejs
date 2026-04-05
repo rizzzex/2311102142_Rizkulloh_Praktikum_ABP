@@ -1,0 +1,80 @@
+<%- include('partials/header') %>
+
+    <div class="row align-items-center mb-5">
+        <div class="col">
+            <h2 class="fw-bold mb-2">Daftar Mahasiswa <span class="text-gradient">Terdaftar</span></h2>
+            <p class="text-secondary mb-0 opacity-75">Kelola data mahasiswa Anda dengan fitur pencarian dan kontrol
+                CRUD.</p>
+        </div>
+        <div class="col-auto">
+            <a href="/form" class="btn btn-primary rounded-pill px-5 py-2 shadow-sm">
+                <i class="fas fa-plus me-2"></i> Tambah Data Baru
+            </a>
+        </div>
+    </div>
+
+    <div class="card bg-dark border-secondary shadow-lg overflow-hidden">
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table id="studentTable" class="table table-dark table-hover align-middle" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Program Studi</th>
+                            <th class="text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold" id="editModalLabel">Edit Mahasiswa</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" id="editId" name="id">
+                        <div class="mb-3">
+                            <label for="editNim" class="form-label">NIM</label>
+                            <input type="text" class="form-control" id="editNim" name="nim" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editNama" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="editNama" name="nama" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="editEmail" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editJurusan" class="form-label">Program Studi</label>
+                            <select class="form-select" id="editJurusan" name="jurusan" required>
+                                <option value="Informatika">Teknik Informatika</option>
+                                <option value="Sistem Informasi">Sistem Informasi</option>
+                                <option value="Teknik Industri">Teknik Industri</option>
+                                <option value="Arsitektur">Arsitektur</option>
+                            </select>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary py-2 rounded-pill fw-bold">
+                                Update Perubahan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

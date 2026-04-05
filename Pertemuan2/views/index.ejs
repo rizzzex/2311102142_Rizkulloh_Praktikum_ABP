@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<div class="row min-vh-75 align-items-center justify-content-center text-center py-5">
+    <div class="col-lg-10 py-5">
+        <h1 class="display-2 fw-bold mb-4 ls-tight">Kelola Data Mahasiswa <br><span class="text-gradient">Lebih Cerdas & Cepat.</span></h1>
+        <p class="lead text-secondary mb-5 mx-auto opacity-75" style="max-width: 800px; font-size: 1.25rem;">Aplikasi manajemen data mahasiswa modern dengan fitur CRUD lengkap, pencarian instan, dan antarmuka yang memukau. Dibangun dengan NodeJS, Bootstrap, dan jQuery.</p>
+        
+        <div class="d-flex justify-content-center gap-4">
+            <a href="/form" class="btn btn-primary btn-lg px-5 rounded-pill shadow-lg shadow-primary py-3">
+                <i class="fas fa-plus me-2"></i> Mulai Input Data
+            </a>
+            <a href="/table" class="btn btn-outline-light btn-lg px-5 rounded-pill py-3">
+                <i class="fas fa-table me-2"></i> Lihat Data Tabel
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-5">
+    <div class="col-md-4">
+        <div class="card bg-dark border-secondary h-100 p-3 hover-lift">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-primary-soft mb-3 mx-auto">
+                    <i class="fas fa-bolt text-primary"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Performa Cepat</h5>
+                <p class="text-secondary small mb-0">Memuat data dalam hitungan milidetik dengan DataTables!</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-dark border-secondary h-100 p-3 hover-lift">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-success-soft mb-3 mx-auto">
+                    <i class="fas fa-layer-group text-success"></i>
+                </div>
+                <h5 class="fw-bold mb-2">CRUD Lengkap</h5>
+                <p class="text-secondary small mb-0">Tambah, Edit, dan Hapus data dengan integrasi AJAX.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-dark border-secondary h-100 p-3 hover-lift">
+            <div class="card-body text-center">
+                <div class="icon-circle bg-info-soft mb-3 mx-auto">
+                    <i class="fas fa-database text-info"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Data JSON</h5>
+                <p class="text-secondary small mb-0">Penyimpanan data yang efisien dan mudah diakses.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
