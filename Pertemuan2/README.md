@@ -54,4 +54,3 @@ Sebuah aplikasi web sederhana untuk mengelola data mahasiswa (CRUD) yang dibangu
 - **Tugas**: Praktikum ABP Pertemuan 2
 
 ---
-Dibuat dengan ❤️ untuk memenuhi tugas mata kuliah Praktikum Arsitektur & Budaya Perangkat Lunak.
