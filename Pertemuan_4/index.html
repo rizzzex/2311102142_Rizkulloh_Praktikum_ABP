@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Modul Ajax</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-secondary bg-opacity-10 d-flex justify-content-center align-items-center vh-100 m-0">
+
+    <!-- Membatasi lebar menggunakan sizing/grid murni Bootstrap -->
+    <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+        
+        <div class="card border-0 shadow-lg rounded-4 p-4 text-center bg-white">
+            <div class="card-body p-2">
+                
+                <!-- Avatar Icon dengan utility color Bootstrap -->
+                <div class="rounded-circle bg-primary bg-gradient text-white d-inline-flex align-items-center justify-content-center shadow mb-4" style="width: 80px; height: 80px;">
+                    <i class="bi bi-person-fill fs-1"></i>
+                </div>
+                
+                <h3 class="card-title fw-bold text-dark mb-1">Data Pegawai</h3>
+                <p class="text-muted small mb-4">Sistem Informasi Profil Instansi</p>
+                
+                <!-- Tombol Action -->
+                <button id="btn-tampil" class="btn btn-primary bg-gradient btn-lg rounded-pill px-4 shadow mb-4 w-100 border-0">
+                    <i class="bi bi-cloud-download me-2"></i>Tampilkan Profil
+                </button>
+                
+                <!-- Tempat hasil AJAX -->
+                <div id="hasil-profil" class="alert d-none shadow-sm rounded-3 py-3 text-start mb-0" role="alert"></div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('btn-tampil').addEventListener('click', function() {
+            const btn = this;
+            const originalContent = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Memuat...';
+            btn.classList.add('disabled');
+
+            fetch('data.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Terjadi kesalahan pada jaringan.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const hasilDiv = document.getElementById('hasil-profil');
+                    
+                    // Menggunakan utility Bootstrap murni untuk border-left / warna alertnya
+                    hasilDiv.className = 'alert shadow-sm rounded-3 py-3 text-start mb-0 bg-white border-0 border-start border-5 border-success';
+                    
+                    let htmlContent = `<div class="d-flex align-items-center mb-2 pb-2"><i class="bi bi-check-circle-fill text-success fs-4 me-2"></i> <strong class="text-dark">Daftar Pegawai</strong></div>`;
+                    
+                    data.forEach((pegawai, index) => {
+                        htmlContent += `
+                            <div class="text-dark border-top pt-2 pb-1 mt-1" style="font-size: 0.85rem;">
+                                <span class="badge bg-primary text-white rounded-pill me-1 pb-1 px-2">${index + 1}</span>
+                                Nama: <strong>${pegawai.nama}</strong> | Pekerjaan: <strong>${pegawai.pekerjaan}</strong> | Lokasi: <strong>${pegawai.lokasi}</strong>
+                            </div>
+                        `;
+                    });
+                    
+                    hasilDiv.innerHTML = htmlContent;
+                })
+                .catch(error => {
+                    const hasilDiv = document.getElementById('hasil-profil');
+                    
+                    hasilDiv.className = 'alert shadow-sm rounded-3 py-3 text-start mb-0 alert-danger border-0 border-start border-5 border-danger d-flex align-items-center';
+                    hasilDiv.innerHTML = `<i class="bi bi-exclamation-triangle-fill fs-3 me-3"></i> <div class="fw-bold text-dark">Gagal memuat data dari server.</div>`;
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        btn.innerHTML = originalContent;
+                        btn.classList.remove('disabled');
+                    }, 400); 
+                });
+        });
+    </script>
+</body>
+</html>
