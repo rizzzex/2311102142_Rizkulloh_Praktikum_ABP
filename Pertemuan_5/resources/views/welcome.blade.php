@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Laravel') }} - Inventory Solution</title>
+        <title>{{ config('app.name', 'Laravel') }} - Inventory System</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,35 +16,34 @@
 
         <style>
             body { font-family: 'Outfit', sans-serif; }
-            .mesh-gradient {
-                background: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                            radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                            radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            .bg-mesh {
+                background: radial-gradient(at 0% 0%, hsla(343, 89%, 10%, 1) 0, transparent 50%), 
+                            radial-gradient(at 100% 0%, hsla(343, 89%, 5%, 1) 0, transparent 50%);
             }
         </style>
     </head>
-    <body class="antialiased bg-[#F8FAFC] dark:bg-[#0F172A] text-slate-900 dark:text-white">
+    <body class="antialiased bg-black text-zinc-300 selection:bg-primary-600 selection:text-white">
         <!-- Navigation -->
-        <nav class="relative z-50 max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="p-2 bg-indigo-600 rounded-xl shadow-lg shadow-indigo-500/20">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <nav class="relative z-50 max-w-7xl mx-auto px-6 py-10 flex items-center justify-between">
+            <div class="flex items-center space-x-4 group">
+                <div class="p-2.5 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl shadow-xl shadow-primary-900/40 group-hover:scale-110 transition-all duration-500">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
                 </div>
-                <span class="text-2xl font-black tracking-tighter">StockMate</span>
+                <span class="text-3xl font-black tracking-tighter text-white uppercase italic">Cokomi<span class="text-primary-600">Store</span></span>
             </div>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-6">
                 @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="px-6 py-2.5 bg-indigo-600 text-white font-black rounded-xl hover:bg-indigo-700 transition duration-300">
-                            Masuk Console
+                        <a href="{{ url('/dashboard') }}" class="px-8 py-3 bg-primary-600 text-white font-black rounded-2xl hover:bg-primary-500 transition-all duration-300 shadow-2xl shadow-primary-900/40 uppercase tracking-widest text-xs">
+                            Dashboard
                         </a>
                     @else
-                        <a href="{{ route('login') }}" class="px-6 py-2.5 text-slate-600 dark:text-slate-400 font-bold hover:text-indigo-600 transition">
-                            Log in
+                        <a href="{{ route('login') }}" class="text-zinc-500 font-black hover:text-white transition uppercase tracking-widest text-xs">
+                            Log In
                         </a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="px-6 py-2.5 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-black rounded-xl shadow-md border border-slate-100 dark:border-slate-700 hover:scale-105 transition-all">
+                            <a href="{{ route('register') }}" class="px-8 py-3 bg-zinc-900 text-white font-black rounded-2xl shadow-xl border border-zinc-800 hover:bg-zinc-800 transition-all uppercase tracking-widest text-xs">
                                 Register
                             </a>
                         @endif
@@ -54,105 +53,82 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="relative pt-20 pb-32 overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] opacity-30 dark:opacity-20 pointer-events-none">
-                <div class="absolute inset-0 mesh-gradient blur-[120px]"></div>
+        <section class="relative pt-20 pb-40 overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] opacity-40 pointer-events-none">
+                <div class="absolute inset-0 bg-mesh blur-[150px]"></div>
             </div>
 
-            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <span class="inline-block px-4 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-[0.2em] rounded-full mb-8">
-                        Pertemuan 5 - Praktikum ABP
-                    </span>
-                    <h1 class="text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-8">
-                        Kelola Stok <br> 
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">Pak Cokomi & Mas Wowo</span> <br>
-                        Lebih Cerdas.
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-24">
+                <div class="lg:w-3/5">
+                    <div class="inline-flex items-center gap-2 px-5 py-2 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-full mb-10">
+                        <span class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></span>
+                        <span class="text-zinc-500 text-[10px] font-black uppercase tracking-[0.3em]">Pertemuan 5 - Inventory System</span>
+                    </div>
+                    
+                    <h1 class="text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-10 text-white italic uppercase">
+                        Manage <br> 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-600 to-primary-800">Your Store</span> <br>
+                        Easily.
                     </h1>
-                    <p class="text-xl text-slate-500 dark:text-slate-400 font-medium mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed italic">
-                        Platform manajemen inventaris modern yang dirancang khusus untuk efisiensi toko mas Wowo dan pak Cokomi. Pantau barang masuk dan keluar dengan satu klik.
+                    
+                    <p class="text-xl text-zinc-500 font-bold mb-12 max-w-2xl leading-relaxed italic">
+                        Platform inventaris modern untuk Toko Pak Cokomi dan Mas Wowo. Kelola produk, stok, dan harga dalam satu dashboard yang elegan.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
-                        <a href="{{ route('login') }}" class="w-full sm:w-auto px-10 py-5 bg-indigo-600 text-white font-black text-lg rounded-[2rem] shadow-2xl shadow-indigo-500/40 hover:bg-indigo-700 hover:scale-105 transition-all duration-300">
-                            Mulai Sekarang
+                    <div class="flex flex-col sm:flex-row items-center gap-8">
+                        <a href="{{ route('login') }}" class="group relative w-full sm:w-auto px-12 py-6 bg-primary-600 text-white font-black text-lg rounded-3xl shadow-2xl shadow-primary-900/50 overflow-hidden transition-all duration-300">
+                            <span class="relative z-10 uppercase tracking-widest italic">Mulai Sekarang</span>
                         </a>
-                        <div class="flex -space-x-4">
-                            <div class="w-12 h-12 rounded-full border-4 border-white dark:border-slate-800 bg-blue-500 flex items-center justify-center text-white font-black text-xs">C</div>
-                            <div class="w-12 h-12 rounded-full border-4 border-white dark:border-slate-800 bg-purple-500 flex items-center justify-center text-white font-black text-xs">W</div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="flex -space-x-3">
+                                <div class="w-12 h-12 rounded-full border-4 border-black bg-primary-600 flex items-center justify-center text-white font-black">C</div>
+                                <div class="w-12 h-12 rounded-full border-4 border-black bg-zinc-800 flex items-center justify-center text-white font-black">W</div>
+                            </div>
+                            <p class="text-zinc-500 font-bold text-xs uppercase tracking-widest italic">Cokomi & Wowo Trusted</p>
                         </div>
-                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest italic">Dipercaya C&W Labs</p>
                     </div>
                 </div>
 
-                <div class="lg:w-1/2 relative">
+                <div class="lg:w-2/5 relative">
                     <div class="relative group">
-                        <!-- Card Mockup -->
-                        <div class="bg-white dark:bg-slate-800 p-8 rounded-[3rem] shadow-2xl border border-slate-100 dark:border-slate-700 transform rotate-2 group-hover:rotate-0 transition duration-500">
-                            <div class="flex items-center justify-between mb-8">
+                        <!-- Mockup -->
+                        <div class="bg-zinc-900/80 backdrop-blur-2xl p-10 rounded-[4rem] shadow-2xl border border-zinc-800 transform rotate-3 group-hover:rotate-0 transition-all duration-700">
+                            <div class="flex items-center justify-between mb-10">
                                 <div class="flex space-x-2">
-                                    <div class="w-3 h-3 rounded-full bg-rose-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-amber-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-primary-600"></div>
+                                    <div class="w-3 h-3 rounded-full bg-zinc-700"></div>
+                                    <div class="w-3 h-3 rounded-full bg-zinc-800"></div>
                                 </div>
-                                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Inventory Visualization</span>
+                                <div class="px-3 py-1 bg-black rounded-full border border-zinc-800">
+                                    <span class="text-[8px] font-black text-zinc-500 uppercase tracking-widest italic">Status: Online</span>
+                                </div>
                             </div>
-                            <!-- Mockup Content -->
-                            <div class="space-y-6">
-                                <div class="h-12 bg-slate-100 dark:bg-slate-900/50 rounded-2xl w-full"></div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="h-32 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-[2rem] p-6 flex flex-col justify-end border border-indigo-500/20">
-                                        <div class="text-2xl font-black text-indigo-600 tracking-tighter">2.5k</div>
-                                        <div class="text-[8px] font-black uppercase text-slate-500">Total Items</div>
+                            
+                            <div class="space-y-8">
+                                <div class="h-14 bg-black rounded-2xl w-full border border-zinc-900 animate-pulse"></div>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="h-40 bg-gradient-to-br from-primary-900/40 to-black rounded-[2.5rem] p-8 flex flex-col justify-end border border-primary-500/20">
+                                        <div class="text-4xl font-black text-white tracking-tighter italic">99+</div>
+                                        <div class="text-[9px] font-black uppercase text-primary-500 tracking-[0.2em]">Products</div>
                                     </div>
-                                    <div class="h-32 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-[2rem] p-6 flex flex-col justify-end border border-emerald-500/20">
-                                        <div class="text-2xl font-black text-emerald-600 tracking-tighter">Active</div>
-                                        <div class="text-[8px] font-black uppercase text-slate-500">System State</div>
+                                    <div class="h-40 bg-black rounded-[2.5rem] p-8 flex flex-col justify-end border border-zinc-900">
+                                        <div class="text-3xl font-black text-white tracking-tighter italic">LIVE</div>
+                                        <div class="text-[9px] font-black uppercase text-zinc-600 tracking-[0.2em]">Active</div>
                                     </div>
                                 </div>
-                                <div class="h-20 bg-slate-50 dark:bg-slate-900 rounded-[1.5rem] w-full border border-slate-100 dark:border-slate-700"></div>
                             </div>
                         </div>
-                        <!-- Floating Bubbles -->
-                        <div class="absolute -top-12 -right-12 w-24 h-24 bg-purple-600 rounded-full blur-[60px] opacity-40"></div>
-                        <div class="absolute -bottom-12 -left-12 w-24 h-24 bg-blue-600 rounded-full blur-[60px] opacity-40"></div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features -->
-        <section class="py-24 bg-white dark:bg-slate-900/50">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="p-10 rounded-[2.5rem] bg-[#F8FAFC] dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight uppercase">CRUD Terintegrasi</h3>
-                    <p class="text-slate-500 font-medium leading-relaxed">Kelola produk Pak Cokomi dengan fitur Tambah, Ubah, dan Hapus yang didesain ultra modern.</p>
-                </div>
-
-                <div class="p-10 rounded-[2.5rem] bg-[#F8FAFC] dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight uppercase">Akses Keamanan</h3>
-                    <p class="text-slate-500 font-medium leading-relaxed">Sistem login menggunakan Laravel Breeze yang menjamin keamanan data inventaris toko mas Wowo.</p>
-                </div>
-
-                <div class="p-10 rounded-[2.5rem] bg-[#F8FAFC] dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-black mb-4 tracking-tight uppercase">Statistik Real-time</h3>
-                    <p class="text-slate-500 font-medium leading-relaxed">Pantau total aset dan stok barang yang menipis secara instan melalui dashboard analitik premium.</p>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="py-12 text-center border-t border-slate-200 dark:border-slate-800">
-            <p class="text-xs font-black text-slate-400 uppercase tracking-[0.3em] italic">Dibuat khusus untuk Tugas Praktikum ABP Pertemuan 5</p>
+        <footer class="py-20 border-t border-zinc-900">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p class="text-[10px] font-black text-zinc-700 uppercase tracking-[0.5em] italic">© 2026 CokomiStore - Praktikum ABP Pertemuan 5</p>
+            </div>
         </footer>
     </body>
 </html>

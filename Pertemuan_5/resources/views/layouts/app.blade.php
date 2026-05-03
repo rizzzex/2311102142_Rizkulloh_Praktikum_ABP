@@ -20,22 +20,26 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased bg-black text-zinc-300 selection:bg-primary-600 selection:text-white">
+        <div class="min-h-screen bg-black">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow">
+                <header class="bg-zinc-950 border-b border-zinc-900 sticky top-0 z-40">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                        <div class="flex items-center justify-between">
+                            {{ $header }}
+                        </div>
                     </div>
                 </header>
             @endisset
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
+            <main class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
     </body>
