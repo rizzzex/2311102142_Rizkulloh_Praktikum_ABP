@@ -83,4 +83,4 @@ Tugas Praktikum ABP Pertemuan 5. Sistem Informasi Inventaris Toko menggunakan La
 *(Ganti dengan screenshot asli saat program jalan)*
 
 ---
-Dibuat oleh [Nama Anda] - NIM [NIM Anda]
+Dibuat oleh [Rizkulloh Alpriyansah] - NIM [2311102142]
