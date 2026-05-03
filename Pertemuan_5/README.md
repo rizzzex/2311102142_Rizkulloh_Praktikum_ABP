@@ -1,29 +1,20 @@
 # 🏪 Inventory Management System - Pak Cokomi & Mas Wowo
 
-Tugas Praktikum ABP Pertemuan 5. Sistem Informasi Inventaris Toko menggunakan Laravel, Breeze, dan MySQL.
+Tugas Praktikum ABP Pertemuan 5. Sistem Informasi Inventaris Toko menggunakan Laravel, Breeze, dan SQLite. Proyek ini mengusung tema **Dark Mode (Black & Red)** yang premium dan modern.
 
 ## ✨ Fitur Utama
-- **Authentication**: Menggunakan Laravel Breeze (Login, Register, Logout).
-- **Dashboard**: Statistik ringkasan (Total Produk, Nilai Inventaris, Stok Rendah).
-- **CRUD Produk**:
-  - **Daftar**: Tabel data premium dengan hover effect.
-  - **Tambah**: Form input dengan validasi.
-  - **Edit**: Ubah data produk yang sudah ada.
-  - **Hapus**: Konfirmasi modal menggunakan Alpine.js sebelum penghapusan.
-- **Seeding**: Data otomatis menggunakan Factory & Seeder.
-
-## 🚀 Persyaratan Sistem
-- PHP >= 8.2
-- Composer
-- Node.js & NPM
-- MySQL / MariaDB
+- **Authentication**: Sistem login aman menggunakan Laravel Breeze.
+- **Dashboard**: Statistik real-time (Total Produk, Valuasi Inventaris, Low Stock Alert).
+- **CRUD Produk**: Manajemen data produk (Nama, Kategori, Harga, Stok, Deskripsi).
+- **UI Premium**: Desain Black & Red dengan efek Glassmorphism, Modal Konfirmasi, dan Progress Bar Stok.
+- **Seeding**: Data otomatis menggunakan Database Factory & Seeder.
 
 ## 🛠️ Cara Instalasi
 
 1. **Clone Repository**
    ```bash
-   git clone <link-repo-ini>
-   cd <nama-folder>
+   git clone https://github.com/rizzzex/2311102142_Rizkulloh_Praktikum_ABP.git
+   cd Pertemuan_5
    ```
 
 2. **Install Dependencies**
@@ -33,54 +24,48 @@ Tugas Praktikum ABP Pertemuan 5. Sistem Informasi Inventaris Toko menggunakan La
    ```
 
 3. **Konfigurasi Environment**
-   Salin file `.env.example` menjadi `.env` dan sesuaikan pengaturan database Anda.
    ```bash
    cp .env.example .env
-   ```
-   Pastikan `DB_DATABASE=inventory_db` atau sesuai keinginan Anda.
-
-4. **Generate Key & Migrate**
-   ```bash
    php artisan key:generate
-   php artisan migrate --seed
-   ```
-   *(Data dummy akan otomatis terisi termasuk akun tester)*
-
-5. **Build Assets**
-   ```bash
-   npm run build
    ```
 
-6. **Run Server**
+4. **Migrate & Seed**
    ```bash
+   php artisan migrate:fresh --seed
+   ```
+
+5. **Run Server**
+   ```bash
+   npm run dev
    php artisan serve
    ```
 
-## 🔐 Akun Login (Default Seeder)
+## 🔐 Akun Login (Tester)
 - **Email**: `cokomi@toko.com` atau `wowo@toko.com`
 - **Password**: `password`
 
 ## 📸 Dokumentasi (Screenshots)
 
 ### 1. Halaman Login
-![Login Screen](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/512x128.png)
-*(Ganti dengan screenshot asli saat program jalan)*
+Halaman login dengan desain gelap yang elegan.
+![Login Screen](public/screenshots/1-login.png)
 
 ### 2. Dashboard Inventaris
-![Dashboard](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/512x128.png)
-*(Ganti dengan screenshot asli saat program jalan)*
+Pusat kontrol manajemen stok dengan statistik aset.
+![Dashboard](public/screenshots/2-dashboard.png)
 
 ### 3. Tabel Data Produk
-![Index Product](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/512x128.png)
-*(Ganti dengan screenshot asli saat program jalan)*
+Tampilan data produk dengan indikator kapasitas stok.
+![Index Product](public/screenshots/3-products-index.png)
 
-### 4. Form Tambah/Edit
-![Forms](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/512x128.png)
-*(Ganti dengan screenshot asli saat program jalan)*
+### 4. Form Tambah/Edit Produk
+Form input aset dengan validasi dan desain modern.
+![Forms](public/screenshots/4-product-create.png)
 
 ### 5. Konfirmasi Modal Delete
-![Delete Modal](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/512x128.png)
-*(Ganti dengan screenshot asli saat program jalan)*
+Proteksi penghapusan data menggunakan modal konfirmasi.
+![Delete Modal](public/screenshots/6-delete-modal.png)
 
 ---
-Dibuat oleh [Rizkulloh Alpriyansah] - NIM [2311102142]
+Dibuat oleh **[Rizkulloh Alpriyansah]** - NIM **[2311102142]**
+Tugas Praktikum Aplikasi Berbasis Platform 2026.
