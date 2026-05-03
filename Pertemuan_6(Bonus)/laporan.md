@@ -31,8 +31,3 @@ Setelah instalasi selesai, dilakukan pembuatan project baru menggunakan template
 
 ---
 
-### 📝 Kesimpulan
-Berdasarkan hasil di atas, environment untuk pengembangan aplikasi Android telah siap digunakan. Semua komponen utama seperti IDE, SDK Manager, dan Emulator telah terkonfigurasi dengan benar tanpa kendala teknis yang berarti.
-
----
-*Dicetak pada: 2026-05-03 23:56*
