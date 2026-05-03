@@ -7,7 +7,6 @@
 *   **Nama:** Rizkulloh
 *   **NIM:** 2311102142
 *   **Mata Kuliah:** Praktikum Aplikasi Berbasis Platform (ABP)
-*   **Topik:** Persiapan Environment Android Development
 
 ---
 
