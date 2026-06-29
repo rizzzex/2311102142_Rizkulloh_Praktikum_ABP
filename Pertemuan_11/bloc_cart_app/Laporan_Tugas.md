@@ -6,27 +6,28 @@
 
 ## 1. Tampilan Daftar Produk
 
-*(Silakan ganti teks ini dengan screenshot antarmuka daftar produk)*
+![Daftar Produk](screenshot_produk.png)
 
-**Penjelasan:**  
-Halaman utama menampilkan daftar minimal 5 produk. Aplikasi dibungkus dengan `BlocProvider<CartCubit>` di tingkat `MaterialApp` sehingga instance `CartCubit` dapat diakses dari halaman manapun. Di pojok kanan atas terdapat ikon keranjang belanja yang menampilkan `totalItems` dari state Cubit.
-
-## 2. Proses Menambahkan Produk ke Keranjang
-
-*(Silakan ganti teks ini dengan screenshot saat tombol tambah keranjang ditekan, misalnya saat notifikasi snackbar muncul)*
-
-**Penjelasan:**  
-Saat tombol keranjang di sebelah produk ditekan, fungsi `addProduct(product)` pada `CartCubit` dipanggil menggunakan `context.read<CartCubit>().addProduct(product)`. Cubit akan mengambil state keranjang saat ini, menyalin listnya, menambahkan item baru, dan kemudian melakukan `emit` state terbaru yang secara otomatis diperbarui oleh `BlocBuilder`.
-
-## 3. Tampilan Jumlah Item pada Keranjang Setelah Terjadi Perubahan State
-
-*(Silakan ganti teks ini dengan screenshot halaman keranjang belanja yang memperlihatkan item yang sudah ditambahkan)*
-
-**Penjelasan:**  
-Pada halaman utama, ikon keranjang dibungkus dengan `BlocBuilder<CartCubit, CartState>`. Ketika ada perubahan state (`emit` dari Cubit), `BlocBuilder` hanya akan me-rebuild widget *badge* jumlah item, menampilkan jumlah produk secara real-time. Hal yang sama juga terjadi di dalam halaman `CartPage` dimana list keranjang dirender berdasarkan `state.cartItems`. Penghapusan item dari keranjang dilakukan dengan fungsi `removeProduct` yang juga memperbarui state.
+Halaman utama ini isinya daftar 5 produk yang bisa dibeli. Aplikasinya dibungkus pake `BlocProvider` dari awal jalan supaya semua halaman bisa akses state keranjangnya. Di pojok kanan atas juga ada tombol keranjang yang nampilin jumlah barang secara real-time.
 
 ---
 
-## Repositori Publik
+## 2. Proses Menambahkan Produk ke Keranjang
 
-**Link GitHub Repo:** *(Silakan isi dengan link repositori GitHub publik Anda yang berisi folder proyek ini)*
+![Tambah ke Keranjang](screenshot_tambah_keranjang.png)
+
+Kalo icon keranjang di sebelah harga barang diklik, produknya otomatis masuk ke keranjang. Proses ini manggil fungsi `addProduct` yang ada di dalem `CartCubit`. Begitu statenya berubah, otomatis nampilin notif (snackbar) ngasih tau kalo barang sukses ditambahin.
+
+---
+
+## 3. Tampilan Jumlah Item pada Keranjang (Real-time)
+
+![Isi Keranjang](screenshot_isi_keranjang.png)
+
+Jumlah angka yang ada di icon keranjang bakal langsung berubah real-time tiap kali kita nambahin atau ngurangin barang berkat `BlocBuilder`. Kalau icon keranjangnya di-klik, kita bakal masuk ke halaman detail keranjang buat liat barang apa aja yang udah di-list. Di situ juga bisa hapus barang dari keranjang pakai fungsi `removeProduct`.
+
+---
+
+## Repositori GitHub
+
+**Link Repo:** https://github.com/rizzzex/2311102142_Rizkulloh_Praktikum_ABP
